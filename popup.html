@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusFuel</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h1>FocusFuel</h1>
+      </div>
+      <button id="settingsBtn" class="icon-btn" aria-label="Settings">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="cost-card">
+      <div class="cost-label">Context Switch Cost Today</div>
+      <div class="cost-value" id="costValue">$0.00</div>
+      <div class="cost-subtitle">Based on $120,000/year salary • 23 min recovery</div>
+    </div>
+
+    <div class="timer-section">
+      <div class="timer-display" id="timerDisplay">25:00</div>
+      <div class="timer-status" id="timerStatus">Ready to focus</div>
+      <button id="startTimerBtn" class="btn-primary">Start Deep Work Session</button>
+    </div>
+
+    <form id="addForm" class="add-form">
+      <div class="form-row">
+        <input type="text" id="siteInput" placeholder="e.g., instagram.com" required pattern="[a-z0-9.-]+\.[a-z]{2}">
+        <select id="categorySelect" required>
+          <option value="" disabled selected>Category</option>
+          <option value="social">Social</option>
+          <option value="news">News</option>
+          <option value="shopping">Shopping</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary btn-full" id="submitBtn">Add to Blocklist</button>
+    </form>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All Sites</button>
+      <button class="filter-btn" data-filter="social">Social</button>
+      <button class="filter-btn" data-filter="news">News</button>
+      <button class="filter-btn" data-filter="shopping">Shopping</button>
+    </div>
+
+    <div id="itemsList" class="items-list"></div>
+
+    <div class="actions">
+      <button id="clearCompletedBtn" class="btn-secondary">Clear Unblocked</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
